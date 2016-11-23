@@ -2,18 +2,23 @@ var app = angular.module('myApp', ['ngRoute']);
 
 app.config(['$routeProvider', function($routeProvider) {
   $routeProvider
-    .when('/home', {
-      templateUrl: '/views/templates/home.html',
-      controller: 'HomeController',
-      controllerAs: 'home'
+    .when('/demo' ,{
+      templateUrl: '/views/templates/demo.html',
+      controller: 'DemosthenesController',
+      controllerAs: 'demo'
     })
-    .when('/potato' ,{
-      templateUrl: '/views/templates/potato.html',
-      controller: 'PotatoController',
-      controllerAs: 'potato'
+    .when('/phil' ,{
+      templateUrl: '/views/templates/phil.html',
+      controller: 'PhillipController',
+      controllerAs: 'phil'
+    })
+    .when('/alex' ,{
+      templateUrl: '/views/templates/alex.html',
+      controller: 'AlexanderController',
+      controllerAs: 'alex'
     })
     .otherwise({
-      redirectTo: 'home'
+      redirectTo: 'demo'
     });
 
 }]);
@@ -25,9 +30,68 @@ app.controller('HomeController', function() {
 
 });
 
-app.controller('PotatoController', function() {
-  console.log('potato controller running');
+app.controller('DemosthenesController', function() {
+  console.log('demo controller running');
   var self = this;
-  self.message = "Potato controller is the best!";
+  self.image = {
+    src: '/assets/demosthenes.jpg',
+    altText: "Demosthenes The Great"
+  };
+  self.stats = {
+    name: "Demosthenes",
+    born: '384 BC',
+    died: '322 BC',
+    occupation: 'Speach Writer'
+  };
 
+  self.hideOccupation = true;
+  self.showOrHide = 'Show';
+  self.toggleOccupation = function () {
+    self.hideOccupation = !self.hideOccupation;
+    self.showOrHide = (self.hideOccupation) ? 'Show' : 'Hide';
+  };
+});
+
+app.controller('PhillipController', function() {
+  console.log('phil controller running');
+  var self = this;
+  self.image = {
+    src: '/assets/phillipII.jpg',
+    alt: 'Phillip II'
+  };
+  self.stats = {
+    name: "Phillip II of Macedon",
+    born: '382 BC',
+    died: '336 BC',
+    occupation: 'King'
+  };
+
+  self.hideOccupation = true;
+  self.showOrHide = 'Show';
+  self.toggleOccupation = function () {
+    self.hideOccupation = !self.hideOccupation;
+    self.showOrHide = (self.hideOccupation) ? 'Show' : 'Hide';
+  };
+});
+
+app.controller('AlexanderController', function() {
+  console.log('alex controller running');
+  var self = this;
+  self.image = {
+    src: '/assets/alexanderTheGreat.jpg',
+    alt: 'Alexander The Great'
+  };
+  self.stats = {
+    name: "Alexander the Great",
+    born: '356 BC',
+    died: '323 BC',
+    occupation: 'Multi-King / Pharoah'
+  };
+
+  self.hideOccupation = true;
+  self.showOrHide = 'Show';
+  self.toggleOccupation = function () {
+    self.hideOccupation = !self.hideOccupation;
+    self.showOrHide = (self.hideOccupation) ? 'Show' : 'Hide';
+  };
 });

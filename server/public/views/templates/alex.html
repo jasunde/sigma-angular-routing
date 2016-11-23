@@ -1,0 +1,32 @@
+
+<div class="row">
+
+  <div class="five columns">
+    <h3>{{alex.stats.name}}</h3>
+    <button class="button button-primary" ng-click="alex.toggleOccupation()"> {{alex.showOrHide}} Occupation</button>
+    <table>
+      <thead>
+        <td colspan="2">
+        </td>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Born:</td>
+          <td>{{alex.stats.born}}</td>
+        </tr>
+        <tr>
+          <td>Died:</td>
+          <td>{{alex.stats.died}}</td>
+        </tr>
+        <tr ng-hide="alex.hideOccupation">
+          <td>Occupation:</td>
+          <td>{{alex.stats.occupation}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="seven columns">
+    <img ng-src="{{alex.image.src}}" alt="{{alex.altText}}" />
+  </div>
+</div>
